@@ -7,10 +7,9 @@ class ChessPiece {
         this.id = id //string
     }
 
-    setSqaure(newSquare){
+    setSquare(newSquare){
         //set the square this piece is sitting top of
         //On the game board, a piece will always be situated on top of a square.
-        console.log(newSquare)
         if(newSquare === undefined){
             this.squareThisPieceIsOn = newSquare
             return 
