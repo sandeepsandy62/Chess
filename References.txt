@@ -1,0 +1,9 @@
+https://en.wikipedia.org/wiki/Chess
+https://phaser.io/download/stable
+https://leokuo0724.medium.com/how-to-integrate-phaser-into-react-a7119e428228#:~:text=After%20create%20a%20react%20app,canvas%20into%20the%20div%20later.
+https://redux-toolkit.js.org/introduction/getting-started
+https://orta.io/notes/games/phaser-redux
+https://redux.js.org/introduction/installation
+https://www.youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
+https://en.wikipedia.org/wiki/Algebraic_notation_(chess)#:~:text=figurine%20algebraic%20notation.-,Notation%20for%20moves,(knight%20moves%20to%20f3).
+
