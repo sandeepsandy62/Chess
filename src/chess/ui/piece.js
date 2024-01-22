@@ -35,7 +35,7 @@ const Piece = (props) => {
           height = {isDragged ? 75 : 60}
           onDragStart={props.onDragStart}
           onDragEnd={props.onDragEnd}
-          fill={(thisWhiteKingInCheck && "red") || (thisBlackKingInCheck && "red")}
+          fill={(thisWhiteKingInCheck || thisBlackKingInCheck ? "red" : "transparent")}
           id = {props.id}
         />
     )

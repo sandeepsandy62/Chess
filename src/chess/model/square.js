@@ -35,6 +35,14 @@ class Square {
         return this.getPieceIdOnThisSquare
     }
 
+    getPieceColor(){
+        return this.pieceOnThisSquare.color
+    }
+
+    getPieceName(){
+        return this.pieceOnThisSquare.name
+    }
+
     getPieceIdOnThisSquare(){
         if(this.pieceOnThisSquare === null){
             return "empty"
