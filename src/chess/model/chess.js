@@ -8,7 +8,7 @@ class Game{
     constructor(thisPlayersColorIsWhite){
         this.thisPlayersColorIsWhite = thisPlayersColorIsWhite // once initialized tihs value should never change.
         
-        console.log("This players color is white: " + this.thisPlayersColorIsWhite)
+        console.log("This players color is : " + this.thisPlayersColorIsWhite)
         
         this.chessBoard = this.makeStartingBoard() // actual chessboard
         this.chess = Chess.create()
@@ -75,7 +75,7 @@ class Game{
         const originalPiece = currentBoard[y][x].getPiece()
 
         if(y === to_y && x === to_x){
-            return "moved in the same position"
+            return " moved in the same position"
         }
 
         /**
@@ -96,11 +96,11 @@ class Game{
             promotion:'q'
         })
 
-        console.log("Move attempt : " + moveAttempt)
+        console.log("Move attempt in chess.js : " + moveAttempt)
         console.log("isPromotio : " + isPromotion)
 
-        if(moveAttempt == null){
-            return "invalid move"
+        if(moveAttempt === null){
+            return " invalid move"
         }
 
         //en passant move 
@@ -149,7 +149,7 @@ class Game{
             )
         ) : currentBoard[to_y][to_x].setPiece(originalPiece)
 
-        if(reassign !== "user tried to capture their own piece"){
+        if(reassign !== " user tried to capture their own piece"){
             currentBoard[y][x].setPiece(null)
         }else{
             return reassign
