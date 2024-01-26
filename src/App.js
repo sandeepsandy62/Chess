@@ -1,15 +1,12 @@
 // App.js
-import ChessGame from "./chess/ui/chessgame";
-
 import React from "react";
+import './App.css';
+import Game from "./pages/Game";
 
 const App = () => {
-
-  const [userName,setUserName] = React.useState('')
-
   return (
    <React.Fragment>
-    <ChessGame />
+    <Game />
    </React.Fragment>
   );
 };
