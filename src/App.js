@@ -2,12 +2,13 @@
 import React from "react";
 import './App.css';
 import Game from "./pages/Game";
+import {GameProvider} from './context/GameContext';
 
 const App = () => {
   return (
-   <React.Fragment>
+   <GameProvider>
     <Game />
-   </React.Fragment>
+   </GameProvider>
   );
 };
 

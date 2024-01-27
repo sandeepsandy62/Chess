@@ -1,4 +1,4 @@
-class Cell{
+export class Cell{
 
     private pos : string
     private piece : string
