@@ -12,6 +12,7 @@ const initialState = {
 export const GameContext = createContext(initialState);
 
 export const GameProvider = ({children}) => {
+    
     const [state,dispatch] = useReducer(GameReducer , initialState);
 
     return(
@@ -19,5 +20,6 @@ export const GameProvider = ({children}) => {
             {children}
         </GameContext.Provider>
     );
+
 };
 
