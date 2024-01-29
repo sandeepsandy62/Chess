@@ -6,7 +6,7 @@ import { GameContext } from "../../context/GameContext";
 import { types } from "../../context/actions";
 import { getGameOverState } from "../../functions";
 import GameOver from "../../components/gameover";
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 
 /**
  * Forsyth–Edwards Notation (FEN) is a standard notation for describing a particular board position of a chess game.
@@ -15,7 +15,7 @@ import io from "socket.io-client";
 
 //Starting position (in FEN)
 const FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-const socket = io("localhost:8000");
+const socket = io("http://localhost:8081");
 
 function Game() {
   const [fen, setFen] = useState(FEN);
@@ -32,32 +32,35 @@ function Game() {
     setBoard(createBoard(fen));
   }, [fen]);
 
-  useEffect(() => {
+  useEffect(()=>{
+
     socket.emit(
-      "join",
-      { name: "sandeep", gameID: "27" },
-      ({ error, color }) => {
-        console.log(color);
+      'join',
+      {name:"sandeep",gameID:"27"},
+      ({error,color}) => {
+        console.log(error)
       }
     );
 
-    socket.on("welcome", ({ message, opponent }) => {
-      console.log({ message, opponent });
-    });
 
-    socket.on("opponentJoin", ({ message, opponent }) => {
-      console.log({ message, opponent });
-    });
+    socket.on('welcome',({message,opponent})=>{
+      console.log({message,opponent});
+    })
 
-    socket.on("opponentMove", ({ from, to }) => {
-      chess.move({ from, to });
+    socket.on('opponentJoin',({message,opponent})=>{
+      console.log({message,opponent});
+    })
+
+    socket.on('opponentMove',({from,to})=>{
+      chess.move({from,to});
       setFen(chess.fen());
-    });
+    })
 
-    socket.on("message", ({ message }) => {
-      console.log({ message });
-    });
-  },[chess]);
+    socket.on("message",({message})=>{
+      console.log({message});
+    })
+
+  },[chess])
 
   useEffect(() => {
     const [gameOver, status] = getGameOverState(chess);
@@ -79,7 +82,7 @@ function Game() {
     chess.move({ from, to });
     dispatch({ type: types.CLEAR_POSSIBLE_MOVES });
     setFen(chess.fen());
-    socket.emit('move',{gameID:'27',from,to:pos});
+    socket.emit('move', { gameID: '27', from, to: pos });
   };
 
   const setFromPos = (pos) => {
